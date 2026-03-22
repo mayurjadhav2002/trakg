@@ -1,0 +1,26 @@
+If you want **Trakg** to skip tracking a specific input field inside a form, you can explicitly disable tracking on that input using the following attribute:
+
+```html
+<input name="secret" trakg-input-no-track="true" />
+```
+
+Trakg will ignore this input entirely — no typing, focus, or blur data will be collected.
+
+## 🔐 Password Field Handling
+
+* Inputs with `type="password"` are **never tracked** by Trakg, even without the `trakg-input-no-track` attribute.
+
+* If a password field is changed to `type="text"` (e.g., during "show password" interactions), Trakg **might** track it unless you explicitly mark it as not tracked.
+
+* For extra safety, always use `trakg-input-no-track="true"` on sensitive fields like passwords or payment data.
+
+---
+
+### ✅ Example
+
+```html
+<form>
+	<input type="email" name="email" />
+	<input type="password" name="password" trakg-input-no-track="true" />
+</form>
+```

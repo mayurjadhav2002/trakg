@@ -1,0 +1,74 @@
+---
+title: WordPress
+description: "Add Trakg to your WordPress site"
+icon: "wordpress"
+iconType: "solid"
+---
+
+## Installing Trakg on WordPress
+
+Trakg works seamlessly with WordPress. You can track form interactions and recover leads without modifying your forms or backend logic.
+
+### Option 1: Add Script via Theme Settings (Recommended)
+
+Most WordPress themes (like Astra, Hello, or Blocksy) allow you to insert custom scripts into the `<head>` or before the `</body>` tag.
+
+1. Log in to your **WordPress Admin Panel**
+2. Navigate to:  
+   **Appearance → Theme File Editor** (or **Customizer → Additional Scripts**, depending on your theme)
+3. Paste the following just **before the closing `</body>` tag**:
+
+```html
+<script
+	defer
+	src="https://cdn.trakg.com/api/v1/tracker.min.js?id=YOUR_ID_GIVEN"
+></script>
+```
+
+**Replace `YOUR_ID_GIVEN` with your actual Site ID**
+
+You can find your Site ID in the [Trakg Dashboard](https://app.trakg.com).
+
+---
+
+## Option 2: Use a Plugin (If Theme Doesn’t Support Scripts)
+
+If your WordPress theme does not allow inserting scripts directly, you can use a plugin like:
+
+-   [Insert Headers and Footers by WPCode](https://wordpress.org/plugins/insert-headers-and-footers/)
+-   [Header Footer Code Manager](https://wordpress.org/plugins/header-footer-code-manager/)
+
+### Steps
+
+1. Install and activate one of the above plugins.
+2. Go to **Settings → Insert Headers and Footers** (or the plugin’s UI).
+3. Paste the Trakg script **in the Footer section**:
+
+```html
+<script
+	defer
+	src="https://cdn.trakg.com/api/v1/tracker.min.js?id=YOUR_ID_GIVEN"
+></script>
+```
+
+4. Click Save.
+
+## Best Practices
+
+-   Use the `defer` attribute for better performance
+-   Place the script just before the closing `</body>` tag
+-   No need to wrap or modify your forms
+-   Works with native HTML forms and most WordPress form plugins (e.g., Contact Form 7, WPForms, Elementor)
+
+---
+
+## You're Ready!
+
+Once the script is installed:
+
+-   Trakg will automatically track form field interactions and clicks
+-   Partially filled data will be captured even without submission
+-   You can view leads, drop-offs, and analytics in your Trakg Dashboard
+-   Recover lost conversions easily
+
+Need help? [Contact Support](https://trakg.com/contact)

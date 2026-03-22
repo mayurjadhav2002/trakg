@@ -1,0 +1,61 @@
+---
+title: Shopify
+description: "Track abandoned Shopify form data with Trakg. Easy setup without modifying your form structure."
+icon: "shopify"
+iconType: "solid"
+---
+
+## Installing Trakg on Shopify
+
+To integrate Trakg with your Shopify store:
+
+### Option 1: Add to Theme (Recommended)
+
+1. Go to your **Shopify Admin** panel
+2. Click **Online Store → Themes → Actions → Edit Code**
+3. In the left sidebar, open `layout/theme.liquid`
+4. Paste the following script **just before the closing `</body>` tag**:
+
+```html
+<script
+	defer
+	src="https://cdn.trakg.com/api/v1/tracker.min.js?id=YOUR_ID_GIVEN"
+></script>
+```
+
+> 🔁 Replace `YOUR_ID_GIVEN` with your actual Site ID from your [Trakg Dashboard](https://app.trakg.com)
+
+5. Click **Save**
+
+---
+
+### Option 2: Use a Shopify App (If theme editing is restricted)
+
+You can use apps like:
+
+-   **Custom JavaScript & CSS by Voidworks**
+-   **ScriptTag Manager**
+
+These allow injecting custom scripts without editing theme code.
+
+---
+
+## Best Practices
+
+-   ✅ Always use the `defer` attribute for non-blocking performance
+-   ✅ Insert the script before the closing `</body>` tag
+-   ✅ No need to change your forms or use any wrappers
+-   ✅ Trakg works with all native HTML forms and most Shopify form apps (e.g., Contact Form, Klaviyo)
+
+---
+
+## You're Ready!
+
+Once the script is installed:
+
+-   Trakg tracks all user interactions and form field activity
+-   Captures partially filled form data without requiring submission
+-   Shows real-time analytics in your [Trakg Dashboard](https://app.trakg.com)
+-   Helps recover abandoned leads and improve conversions
+
+Need help? [Contact Support](https://trakg.com/contact)

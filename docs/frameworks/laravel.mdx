@@ -1,0 +1,50 @@
+---
+title: Laravel
+description: "Integrate Trakg into your Laravel application"
+icon: "laravel"
+iconType: "solid"
+---
+
+## 🧩 Laravel Integration Guide
+
+You can integrate **Trakg** into your Laravel app effortlessly by adding a single script tag.
+
+### ✅ Basic Setup (Blade Template)
+
+Insert the following script in your main Blade layout, typically found at:
+
+```php
+// resources/views/layouts/app.blade.php or similar
+```
+
+Place it **right before the closing `</body>` tag**:
+
+```html
+<!-- Trakg Tracking Script -->
+<script defer src="https://cdn.trakg.com/api/v1/tracker.min.js?id=YOUR_ID_GIVEN"></script>
+```
+
+🔁 **Replace `YOUR_ID_GIVEN` with your actual Site ID from the Trakg dashboard.**
+
+---
+
+## ⚙️ Best Practices
+
+- ✅ Always use `defer` to prevent blocking page rendering.
+- ✅ Keep the script at the end of `<body>` for better performance.
+- ✅ No need to change your form markup — Trakg works with native `form`, `input`, `textarea`, and `select` elements.
+- ✅ It supports Blade forms, Livewire forms, and even Alpine.js interactivity.
+
+---
+
+## 🚀 You're Ready!
+
+Once installed, visit your Trakg dashboard to:
+
+- View partial and completed leads.
+- Monitor real-time form activity.
+- Export lead data.
+- Analyze form abandonment trends.
+
+Need help? [Contact Support](trakg.com/contact) or view [app.trakg.com](/dashboard).
+

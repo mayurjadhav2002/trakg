@@ -1,0 +1,63 @@
+---
+title: Overview
+description: "Trakg supports all major frontend frameworks and platforms with a simple script-based integration."
+icon: "book"
+iconType: "solid"
+---
+
+Trakg is framework-agnostic — meaning it works with **any tech stack** that renders HTML forms on the web. Whether you're using React, Next.js, Vue, Laravel, or just plain HTML/CSS/JavaScript, setup is always fast and non-intrusive.
+
+All you need to do is embed the Trakg script on pages that contain forms. Trakg will automatically detect form interactions and start tracking instantly.
+
+---
+
+## Supported Frameworks & Platforms
+
+<CardGroup cols={3}>
+
+<Card title='React' icon='react' href='/docs/frameworks/react'>
+	Use Trakg in your React app by adding the script to `public/index.html` or
+	dynamically inside a layout component.
+</Card>
+
+<Card title='Next.js' icon='square-js' href='/docs/frameworks/nextjs'>
+	For Next.js, embed the script in `app/layout.tsx` or `_document.js` (for
+	legacy apps).
+</Card>
+
+<Card title='Vue.js' icon='vuejs' href='/docs/frameworks/vue'>
+	Add the Trakg script to your `public/index.html` or in your root App.vue
+	layout.
+</Card>
+
+<Card title="Laravel (Blade)" icon="laravel" href="/docs/frameworks/laravel">
+  Include the script in your `layouts/app.blade.php` just before `</body>` to track all Blade-based forms.
+</Card>
+
+<Card title="HTML / CSS / JS" icon="code" href="/docs/frameworks/html">
+  Using plain HTML? Simply paste the script before the closing `</body>` tag on your site.
+</Card>
+
+<Card title='Custom Frameworks' icon='cubes' href='/docs/installation'>
+	As long as your forms render HTML on the frontend, Trakg works
+	out-of-the-box with minimal setup.
+</Card>
+
+</CardGroup>
+
+---
+
+## One Script to Track Them All
+
+No matter what your tech stack is, the integration stays the same:
+
+```html
+<script
+	defer
+	src="https://cdn.trakg.com/api/v1/tracker.min.js?id=YOUR_ID_GIVEN"
+></script>
+```
+
+🔁 You don’t need to change any form code. Trakg automatically tracks field inputs, timings, and drop-offs.
+
+Want help with a specific setup? Check our detailed [framework guides](/docs/frameworks/react) or [contact support](mailto:support@trakg.com).

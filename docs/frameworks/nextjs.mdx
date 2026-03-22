@@ -1,0 +1,101 @@
+---
+title: Next.js
+description: "Learn how to integrate Trakg with your Next.js app — including both App Router and Pages Router setups."
+icon: "JS"
+iconType: "solid"
+---
+
+Trakg works seamlessly with both **App Router** and **Pages Router** in Next.js. It captures user interactions on any form built with standard HTML elements, and gives you real-time insights — with zero backend config.
+
+---
+
+## 📦 Installation Overview
+
+All you need is to embed the Trakg tracking script. We recommend using Next.js’s built-in `<Script />` component for better performance.
+
+🔁 **Replace `YOUR_ID_GIVEN` with your actual Site ID** found in your Trakg dashboard.
+
+---
+
+## ⚙️ App Router (Next.js 13+)
+
+If you're using the App Router (`/app` directory), you can add the script inside your `layout.tsx` or `layout.js` file — which wraps all routes.
+
+### Example: `app/layout.tsx`
+
+```tsx
+import Script from "next/script";
+
+export default function RootLayout({children}: {children: React.ReactNode}) {
+	return (
+		<html lang='en'>
+			<body>
+				{children}
+
+				{/* ✅ Trakg Script */}
+				<Script
+					defer
+					src='https://cdn.trakg.com/api/v1/tracker.min.js?id=YOUR_ID_GIVEN'
+					strategy='afterInteractive'
+				/>
+			</body>
+		</html>
+	);
+}
+```
+
+## 📁 Pages Router
+
+If you're using the traditional Pages Router (`/pages` directory), include the Trakg script in your custom `_document.js`.
+
+### Example: `pages/\_document.js
+
+```tsx
+import {Html, Head, Main, NextScript} from "next/document";
+
+export default function Document() {
+	return (
+		<Html lang='en'>
+			<Head />
+			<body>
+				<Main />
+				<NextScript />
+
+				{/* ✅ Trakg Script */}
+				<script
+					defer
+					src='https://cdn.trakg.com/api/v1/tracker.min.js?id=YOUR_ID_GIVEN'
+				></script>
+			</body>
+		</Html>
+	);
+}
+```
+
+## 🛡 Best Practices
+
+⚠️ You must use a standard `<script defer />` here — since **Next.js** does **not support** `<Script />` from `next/script` inside `_document.js`.
+
+---
+
+**Recommendations**
+
+-   **Always use the `defer` attribute** — ensures the script loads after the HTML is parsed.
+-   **For App Router**, prefer `<Script strategy="afterInteractive" />` from `next/script`.
+-   **Keep the script at the end of `<body>`** for non-blocking performance.
+-   **No need to modify your forms** — Trakg supports native `<form>`, `<input>`, `<textarea>`, and `<select>` elements.
+-   **Works with any form library or custom UI inputs** — as long as native HTML form elements are rendered in the DOM.
+
+---
+
+## 🚀 You're Ready!
+
+Once the script is added, Trakg will automatically:
+
+-   🔍 Track user interactions on your forms
+-   📝 Capture partially filled form data
+-   ✅ Log completed submissions
+-   📊 Display real-time analytics in your dashboard
+-   🔁 Help you recover abandoned leads
+
+Need help? [Contact Support](/support) or [View Dashboard](/dashboard) to explore your captured data.

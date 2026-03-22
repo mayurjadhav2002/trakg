@@ -1,0 +1,67 @@
+---
+title: React
+description: "Learn how to integrate Trakg into a React application using best practices."
+icon: "react"
+iconType: "solid"
+---
+
+Trakg works seamlessly with React by using a simple `<script>` tag that tracks all form interactions — including abandoned fields. You don’t need to modify your form structure or write any special handlers.
+
+---
+
+## 📦 Where to add the script
+
+In most React apps created with Create React App (CRA), the best place to add the Trakg script is inside the `public/index.html` file.
+
+### ✅ Recommended placement
+
+Paste the following line **before the closing `</body>` tag** inside `public/index.html`:
+
+```jsx
+<!-- Trakg Script -->
+<script
+  src="https://cdn.trakg.com/api/v1/tracker.min.js?id=YOUR_ID_GIVEN"
+></script>
+```
+
+🔁 Replace `YOUR_ID_GIVEN` with the unique Site ID from your Trakg dashboard.
+
+---
+
+## 📁 Full Example: `public/index.html`
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>My React App</title>
+	</head>
+	<body>
+		<div id="root"></div>
+
+		<!-- ✅ Trakg script just before closing body -->
+		<script
+			defer
+			src="https://cdn.trakg.com/api/v1/tracker.min.js?id=YOUR_ID_GIVEN"
+		></script>
+	</body>
+</html>
+```
+
+## 🛡 Best Practices
+
+✅ Always use the `defer` attribute — it ensures the script loads after HTML is parsed  
+✅ Keep the script at the end of the `<body>` for non-blocking performance  
+✅ No need to wrap your form with providers or HOCs — Trakg works with standard HTML form tags  
+✅ Works with any form built using `form`, `input`, `textarea`, or `select`
+
+---
+
+## 🚀 You're Ready!
+
+Once installed, visit your [Trakg dashboard](https://trakg.com) to:
+
+- View partial and completed leads  
+- See real-time form activity  
+- Export your lead data anytime

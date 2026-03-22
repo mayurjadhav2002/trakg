@@ -1,0 +1,382 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "./generated"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id String @id @default(cuid())
+  supabaseId String @unique
+  name String
+  email String @unique
+  phone String?
+  avatar String? @default("https://res.cloudinary.com/dioiyots5/bluey_2_jvigye.webp")
+  company String?
+  password String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  authTypes AuthType[]
+  ExternalForm ExternalForm[]
+  ForgetPassword ForgetPassword?
+  notifications Notification[]
+  refreshTokens RefreshToken[]
+  sessions Session[]
+  userData UserData?
+  userNotifications UserNotification[]
+  preferences UserNotificationPreference[]
+  websites Website[]
+}
+
+model AuthType {
+  id String @id @default(cuid())
+  provider AccountType
+  providerId String
+  userId String
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerId])
+  @@index([userId])
+}
+
+model UserData {
+  id String @id @default(cuid())
+  userId String @unique
+  uniqueId String? @unique
+  company String?
+  designation String?
+  avatar String @default("data.png")
+
+  extendedTrial Boolean @default(false)
+  address String?
+  city String?
+  state String?
+  zipCode String?
+  country String?
+  customerId String?
+  isEmailVerified Boolean @default(false)
+  createdAt DateTime @default(now())
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model RefreshToken {
+  id String @id @default(cuid())
+  userId String
+  token String @unique
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+  sessionId String?
+  session Session? @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([sessionId])
+  @@index([userId])
+}
+
+model Session {
+  id String @id @default(cuid())
+  userId String
+  createdAt DateTime @default(now())
+  loginType AccountType @default(Simple)
+  loggedOutAt DateTime?
+  lastActive DateTime?
+  authorized Boolean @default(true)
+  userAgent String?
+  platform String?
+  language String?
+  ip String?
+  network String?
+  ip_version String?
+  region_code String?
+  city String?
+  region String?
+  country String?
+  country_code String?
+  country_code_iso3 String?
+  continent_code String?
+  postal String?
+  timezone String?
+  location String?
+  utc_offset String?
+  asn String?
+  network_provider String?
+  browser String?
+  browserVersion String?
+  os String?
+  osVersion String?
+  deviceType String?
+  deviceVendor String?
+  deviceModel String?
+  cpuArch String?
+  screenSize String?
+  pixelRatio Float?
+  isTouchDevice Boolean?
+  refreshTokens RefreshToken[]
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+model Website {
+  id String @id @default(cuid())
+  uniqueId String @unique @default(uuid())
+  userId String
+  name String
+  url String
+  description String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  trackingId String
+  verified Boolean @default(false)
+  isActive Boolean @default(true)
+  notificationUser String
+  notificationEmail String
+  analytics Analytics[]
+  forms Form[]
+  leads Lead[]
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+model Form {
+  id String @id @default(cuid())
+  uniqueId String @unique @default(uuid())
+  websiteId String
+  createdAt DateTime @default(now())
+  pageUrl String
+  pageId String
+  formId String
+  formName String
+  isActive Boolean @default(true)
+  analytics Analytics[]
+  fieldsInfo FieldsInfo[]
+  website Website @relation(fields: [websiteId], references: [id], onDelete: Cascade)
+  leads Lead[]
+
+  @@unique([websiteId, pageUrl])
+  @@index([websiteId])
+}
+
+model FieldsInfo {
+  id String @id @default(cuid())
+  uniqueId String @unique @default(uuid())
+  formId String?
+  externalFormId String?
+  sessionTime String?
+  field String?
+  externalForm ExternalForm? @relation(fields: [externalFormId], references: [id], onDelete: Cascade)
+  form Form? @relation(fields: [formId], references: [id], onDelete: Cascade)
+
+  @@unique([formId, field])
+  @@index([externalFormId])
+}
+
+model Lead {
+  id String @id @default(cuid())
+  uniqueId String @unique @default(uuid())
+  formId String
+  externalFormId String?
+  sessionTime Float?
+  opportunityId String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  conversion Boolean @default(false)
+  referral String?
+  opportunityGeo Json?
+  ipAddress String?
+  country String?
+  formData Json
+  utm_Params Json?
+  websiteId String
+  timeSpendOnForm Float?
+  analytics Analytics?
+  deviceInfo DeviceInfo? @relation("LeadDeviceInfo")
+  fieldTimes FieldTimeSpent[]
+  externalForm ExternalForm? @relation(fields: [externalFormId], references: [id], onDelete: Cascade)
+  form Form @relation(fields: [formId], references: [id], onDelete: Cascade)
+  website Website @relation(fields: [websiteId], references: [id], onDelete: Cascade)
+  leadinfo LeadInfo?
+  opportunityformfills OpportunityFormFills[]
+  valueChanges ValueChange[]
+
+  @@index([externalFormId])
+  @@index([formId])
+  @@index([websiteId])
+  @@unique([formId, opportunityId])
+}
+
+model OpportunityFormFills {
+  id String @id @default(cuid())
+  opportunityId String
+  leadId String
+  field String
+  timeSpendOnThis Float?
+  lead Lead @relation(fields: [leadId], references: [id], onDelete: Cascade)
+
+  @@unique([leadId, field])
+}
+
+model DeviceInfo {
+  id String @id @default(cuid())
+  leadId String @unique
+  browser String?
+  os String?
+  deviceType String?
+  otherData Json?
+  lead Lead @relation("LeadDeviceInfo", fields: [leadId], references: [id], onDelete: Cascade)
+}
+
+model LeadInfo {
+  id String @id @default(cuid())
+  leadId String @unique
+  lastFieldFilled String
+  timeSpent Float?
+  lead Lead @relation(fields: [leadId], references: [id], onDelete: Cascade)
+}
+
+model FieldTimeSpent {
+  id String @id @default(cuid())
+  leadId String
+  fieldName String
+  timeSpent Float @default(0)
+  updatedAt DateTime @updatedAt
+  createdAt DateTime @default(now())
+  lead Lead @relation(fields: [leadId], references: [id], onDelete: Cascade)
+
+  @@unique([leadId, fieldName])
+}
+
+model ValueChange {
+  id String @id @default(cuid())
+  leadId String
+  key String
+  value String
+  createdAt DateTime @default(now())
+  currentTime String?
+  opportunityId String
+  lead Lead @relation(fields: [leadId], references: [id], onDelete: Cascade)
+
+  @@index([leadId])
+}
+
+model Analytics {
+  id String @id @default(cuid())
+  websiteId String
+  formId String?
+  externalFormId String?
+  leadId String @unique
+  pageUrl String
+  country String?
+  city String?
+  device Json?
+  browser String?
+  pinCode String?
+  geo Json?
+  region String?
+  os String?
+  action ActionType
+  createdAt DateTime @default(now())
+  externalForm ExternalForm? @relation(fields: [externalFormId], references: [id], onDelete: Cascade)
+  form Form? @relation(fields: [formId], references: [id], onDelete: Cascade)
+  lead Lead @relation(fields: [leadId], references: [id], onDelete: Cascade)
+  website Website @relation(fields: [websiteId], references: [id], onDelete: Cascade)
+
+  @@index([externalFormId])
+  @@index([formId])
+  @@index([websiteId])
+}
+
+model ForgetPassword {
+  id String @id @default(cuid())
+  userId String @unique
+  passwordResetToken String @unique
+  passwordExpiry DateTime
+  createdAt DateTime @default(now())
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model ExternalForm {
+  id String @id @default(cuid())
+  userId String
+  uniqueId String @unique @default(uuid())
+  formType String
+  formName String
+  formUrl String
+  verified Boolean @default(false)
+  trackingScript String @unique
+  isActive Boolean @default(false)
+  analytics Analytics[]
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  fieldsInfo FieldsInfo[]
+  leads Lead[]
+
+  @@index([userId])
+}
+
+model Notification {
+  id String @id @default(cuid())
+  uniqueId String @unique @default(uuid())
+  userId String?
+  title String
+  message String
+  link String?
+  category NotificationCategory
+  isGlobal Boolean @default(false)
+  isRead Boolean @default(false)
+  createdAt DateTime @default(now())
+  user User? @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userNotifications UserNotification[]
+
+  @@index([userId])
+}
+
+model UserNotification {
+  id String @id @default(cuid())
+  userId String
+  notificationId String
+  isRead Boolean @default(false)
+  readAt DateTime?
+  notification Notification @relation(fields: [notificationId], references: [id], onDelete: Cascade)
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([notificationId])
+  @@index([userId])
+}
+
+model UserNotificationPreference {
+  id String @id @default(cuid())
+  userId String
+  type NotificationCategory
+  isActive Boolean @default(true)
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, type])
+}
+
+enum AccountType {
+  Simple
+  Google
+  LinkedIn
+}
+
+enum ActionType {
+  FORM_FILLED
+  FORM_PARTIAL_FILL
+}
+
+enum NotificationCategory {
+  marketing
+  promotions
+  sales
+  updates
+}
+

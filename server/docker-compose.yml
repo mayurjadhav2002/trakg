@@ -1,0 +1,76 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        GH_NPM_TOKEN: ${GH_NPM_TOKEN}
+    container_name: trakg-backend
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    environment:
+      NODE_ENV: ${NODE_ENV}
+      DATABASE_URL: ${DATABASE_URL}
+      REDIS_URL: ${REDIS_URL}
+      JWT_SECRET: ${JWT_SECRET}
+      PORT: ${PORT}
+      BACKEND_URL: ${BACKEND_URL}
+      SECRET_KEY_FOR_TOKEN: ${SECRET_KEY_FOR_TOKEN}
+      SECRET_KEY_FOR_ACCESS_KEY: ${SECRET_KEY_FOR_ACCESS_KEY}
+      SECRET_KEY_FOR_REFRESH_TOKEN: ${SECRET_KEY_FOR_REFRESH_TOKEN}
+      SESSION_SECRET: ${SESSION_SECRET}
+      GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID}
+      GOOGLE_CLIENT_SECRET: ${GOOGLE_CLIENT_SECRET}
+      LINKEDIN_CLIENT_ID: ${LINKEDIN_CLIENT_ID}
+      LINKEDIN_CLIENT_SECRET: ${LINKEDIN_CLIENT_SECRET}
+      FRONTEND_URL: ${FRONTEND_URL}
+      MAIL_EMAIL: ${MAIL_EMAIL}
+      MAIL_PASSWORD: ${MAIL_PASSWORD}
+      MAIL_HOST: ${MAIL_HOST}
+      MAIL_PORT: ${MAIL_PORT}
+      DODO_PAYMENTS_WEBHOOK_KEY: ${DODO_PAYMENTS_WEBHOOK_KEY}
+      DODO_PAYMENTS_API_KEY: ${DODO_PAYMENTS_API_KEY}
+      PAYMENT_REDIRECT_URL: ${PAYMENT_REDIRECT_URL}
+      REDIS_HOST: ${REDIS_HOST}
+      REDIS_PORT: ${REDIS_PORT}
+    depends_on:
+      - redis
+
+  worker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        GH_NPM_TOKEN: ${GH_NPM_TOKEN}
+    container_name: trakg-worker
+    command: ["node", "dist/workers/trialReminder.worker.js"]
+    env_file:
+      - .env
+    environment:
+      NODE_ENV: ${NODE_ENV}
+      DATABASE_URL: ${DATABASE_URL}
+      REDIS_URL: ${REDIS_URL}
+      JWT_SECRET: ${JWT_SECRET}
+      PORT: ${PORT}
+      BACKEND_URL: ${BACKEND_URL}
+      SECRET_KEY_FOR_TOKEN: ${SECRET_KEY_FOR_TOKEN}
+      SECRET_KEY_FOR_ACCESS_KEY: ${SECRET_KEY_FOR_ACCESS_KEY}
+      SECRET_KEY_FOR_REFRESH_TOKEN: ${SECRET_KEY_FOR_REFRESH_TOKEN}
+      SESSION_SECRET: ${SESSION_SECRET}
+      FRONTEND_URL: ${FRONTEND_URL}
+      MAIL_EMAIL: ${MAIL_EMAIL}
+      MAIL_PASSWORD: ${MAIL_PASSWORD}
+      MAIL_HOST: ${MAIL_HOST}
+      MAIL_PORT: ${MAIL_PORT}
+      REDIS_HOST: ${REDIS_HOST}
+      REDIS_PORT: ${REDIS_PORT}
+    depends_on:
+      - redis
+
+  redis:
+    image: redis:7
+    container_name: trakg-redis
+    ports:
+      - "6379:6379"

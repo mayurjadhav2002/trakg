@@ -1,0 +1,52 @@
+
+To track a form using Trakg, you don't need to manually register it. The process is automatic once setup is complete.
+
+## Prerequisites
+
+- A **website** must be created in your Trakg Dashboard.
+- The **tracking script** must be correctly added to your website.
+
+## How It Works
+
+- Once the tracking script is installed, simply **submit a test (dummy) lead** by filling out a form on your website.
+- When the form is interacted with and a lead is captured, Trakg will automatically detect and create the form in your **Forms Panel**.
+
+## Identification
+
+- Trakg uses the `<form>` element’s `name` attribute (if present) to uniquely identify forms.
+- If `name` is not set, Trakg will use the form’s URL path and index.
+- We **recommend using a `name` attribute** on each form for better readability and management.
+
+```html
+<form name="contact-form">
+  <!-- Your input fields -->
+</form>
+```
+## Important Notes
+
+- Only `<input>`, `<textarea>`, `<select>`, and other valid form elements **inside a `<form>` tag** are captured.
+- Avoid using `<section>` or `<div>` to wrap form fields if you want them tracked. Always use a proper `<form>` tag.
+- To uniquely identify a form in the dashboard, you can use either:
+  - the native `name` attribute: `<form name="contact-form">`  
+  - **or** the custom `data-trakg-form-name` attribute: `<form data-trakg-form-name="contact-form">`
+
+---
+
+### ✅ This **will be captured**:
+
+```html
+<form name="newsletter">
+  <input type="email" name="email" />
+  <button type="submit">Subscribe</button>
+</form>
+```
+
+### ❌ This will NOT be captured:
+```html
+<div>
+  <input type="email" name="email" />
+</div>
+```
+ℹ️ Your form will appear in the dashboard only after a successful interaction like typing or submitting a dummy entry.
+
+

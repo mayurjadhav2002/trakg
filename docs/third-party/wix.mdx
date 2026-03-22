@@ -1,0 +1,50 @@
+---
+title: Wix
+description: "Integrate Trakg with your Wix site to track abandoned forms and boost conversions."
+icon: "wix"
+iconType: "solid"
+---
+
+## Installing Trakg on a Wix Site
+
+To install the Trakg script on your Wix site:
+
+1. Open your **Wix Dashboard**
+2. Navigate to **Settings → Custom Code**
+3. Click **Add Custom Code**
+4. Paste the following Trakg script:
+
+```html
+<script
+  defer
+  src="https://cdn.trakg.com/api/v1/tracker.min.js?id=YOUR_ID_GIVEN"
+></script>
+```
+
+> Replace `YOUR_ID_GIVEN` with your actual Site ID from your [Trakg Dashboard](https://app.trakg.com)
+
+5. Select **Body - end** as the location
+6. Apply it to **All Pages**
+7. Save and publish
+
+---
+
+## Best Practices
+
+- ✅ Use the `defer` attribute for better performance  
+- ✅ Place the script just before the closing `</body>` tag  
+- ✅ No need to wrap or modify your forms  
+- ✅ Works with most Wix forms that use native HTML input elements  
+
+---
+
+## You're Ready!
+
+Once the script is installed:
+
+- Trakg will track field-level interactions and form activity  
+- Partially filled form data will be captured even without submission  
+- All leads and analytics are available on your [Trakg Dashboard](https://app.trakg.com)  
+- Recover lost conversions with ease  
+
+Need help? [Contact Support](https://trakg.com/contact)

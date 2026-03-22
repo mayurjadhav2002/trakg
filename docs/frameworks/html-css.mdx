@@ -1,0 +1,68 @@
+---
+title: HTML/CSS/JS
+description: "How to use Trakg with plain HTML, CSS, and JavaScript projects"
+icon: "code"
+iconType: "solid"
+---
+
+## 💡 Getting Started with HTML/CSS/JS
+
+Trakg works out of the box with any static or dynamic website built using plain HTML, CSS, and JavaScript.
+
+### ✅ Recommended Setup
+
+Just add the following script **before the closing `</body>` tag** in your main HTML file:
+
+```html
+<!-- Trakg Tracking Script -->
+<script
+	defer
+	src="https://cdn.trakg.com/api/v1/tracker.min.js?id=YOUR_ID_GIVEN"
+></script>
+```
+
+🔁 Replace `YOUR_ID_GIVEN` with the unique Site ID from your [Trakg Dashboard](https://trakg.com/dashboard).
+
+### 📁 Example: `index.html`
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>My Website</title>
+	</head>
+	<body>
+		<form>
+			<input type="text" name="name" placeholder="Name" />
+			<input type="email" name="email" placeholder="Email" />
+			<button type="submit">Submit</button>
+		</form>
+
+		<!-- ✅ Trakg script just before closing body -->
+		<script
+			defer
+			src="https://cdn.trakg.com/api/v1/tracker.min.js?id=YOUR_ID_GIVEN"
+		></script>
+	</body>
+</html>
+```
+
+### 🛡 Best Practices
+
+✅ Use `defer` to ensure the script loads after HTML is parsed  
+✅ Keep the script at the end of the `<body>` for best performance  
+✅ Works with any form using native `form`, `input`, `textarea`, or `select` tags  
+✅ No need for extra configuration or dependencies
+
+### 🚀 You're Ready!
+
+Once the script is added, Trakg will automatically:
+
+-   Track user interactions on your forms
+-   Capture partially filled form data
+-   Log completed submissions
+-   Show real-time analytics in your Trakg dashboard
+
+Need help? [Contact Support](https://trakg.com/support)

@@ -1,0 +1,21 @@
+{
+	"name": "trakg-inc",
+	"author": {
+		"name": "Mayur Jadhav",
+		"email": "mayur@trakg.com",
+		"url": "https://trakg.com",
+		"github": ""
+	},
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"start": "npx mintlify start",
+		"build": "npx mintlify build",
+		"deploy": "npx mintlify deploy",
+		"dev": "npx mintlify dev"
+	},
+	"dependencies": {
+		"mintlify": "^4.0.535"
+	}
+}

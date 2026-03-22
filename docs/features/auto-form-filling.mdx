@@ -1,0 +1,58 @@
+<Badge variant='warning'>Coming Soon</Badge>
+
+Trakg offers an intelligent **Auto Form Filling** feature that enhances user experience and helps businesses recover more conversions.
+
+When enabled, this feature automatically fills form fields for returning users using the data they entered in **previous forms** on your website — even if those forms were not submitted.
+
+---
+
+## 🔄 How It Works
+
+-   Trakg stores the user's previously typed form data (e.g., name, email, phone) in the browser’s `localStorage`.
+-   When the same user visits another page with a different form, matching fields (by `name` attribute) are auto-filled with that saved data.
+-   If a user **updates** any value in a new form, that change is **immediately synced** across all forms where the data appears.
+-   Data is stored **locally on the user’s browser** (Chrome, Firefox, Safari, etc.) and is never sent elsewhere unless the user submits the form.
+
+---
+
+## ⏳ Data Expiry
+
+-   The stored data remains valid for up to **24 hours**.
+-   After 24 hours of inactivity, the data is automatically cleared.
+-   If the user clears their browser storage or uses incognito/private mode, the autofill may not persist.
+
+---
+
+## 🛡 Privacy & Security
+
+Trakg is privacy-focused by design:
+
+-   Only non-sensitive fields (like name, email, phone, company) are eligible for autofill.
+-   Fields like passwords, financial info, personal IDs, or fields explicitly marked with filters are **never stored or autofilled**.
+-   All storage and matching happens locally in the browser via `localStorage`.
+
+---
+
+## ✅ Benefits for Businesses
+
+-   Increase conversions by reducing the effort for returning users to fill forms again.
+-   Seamless multi-step or multi-page form experiences.
+-   Users can recover and complete forms they started earlier.
+
+---
+
+## 🚀 Example Use Cases
+
+-   A user fills a form on your homepage, then navigates to a pricing/contact page — the second form is already filled.
+-   Multi-step lead journeys where forms are split across pages (common in insurance, SaaS, real estate, etc.).
+
+---
+
+## 💡 Notes
+
+-   This feature is optional and can be toggled from your Trakg dashboard.
+-   Developers can opt out of auto-filling specific forms or fields using `data-trakg-nofill` attributes.
+
+---
+
+Need help implementing or disabling autofill? [Contact Support](https://trakg.com/contact) or visit your [Dashboard](https://app.trakg.com) to configure settings.

@@ -1,0 +1,120 @@
+---
+title: No Code
+description: "Learn how to install Trakg on popular no-code tools like Squarespace, Webflow, Bubble, and more."
+icon: "uncharted"
+iconType: "solid"
+---
+
+## Installing Trakg on No-Code Platforms
+
+Trakg works seamlessly with most no-code builders as long as you can insert a custom `<script>` tag in the site’s `<body>` or footer. Below are instructions for popular tools:
+
+---
+
+### **1. Squarespace**
+
+1. Go to your Squarespace **Admin Dashboard**
+2. Navigate to **Settings → Advanced → Code Injection**
+3. Paste the following script into the **Footer** section:
+
+```html
+<script
+	defer
+	src="https://cdn.trakg.com/api/v1/tracker.min.js?id=YOUR_ID_GIVEN"
+></script>
+```
+
+4. Click **Save**
+
+> Replace `YOUR_ID_GIVEN` with your actual Trakg Site ID from [your dashboard](https://app.trakg.com)
+
+---
+
+### **2. Webflow**
+
+1. Open your Webflow **Project Settings**
+2. Go to the **Custom Code** tab
+3. Scroll to the **Footer Code** section
+4. Paste the Trakg script **before the closing `</body>` tag**:
+
+```html
+<script
+	defer
+	src="https://cdn.trakg.com/api/v1/tracker.min.js?id=YOUR_ID_GIVEN"
+></script>
+```
+
+5. Publish your site
+
+---
+
+### **3. Bubble.io**
+
+1. Go to your Bubble **App Editor**
+2. Click **Settings → SEO / metatags**
+3. Scroll to the **Script in body** field
+4. Paste the Trakg script:
+
+```html
+<script
+	defer
+	src="https://cdn.trakg.com/api/v1/tracker.min.js?id=YOUR_ID_GIVEN"
+></script>
+```
+
+5. Click **Save**
+
+---
+
+### **4. Dorik**
+
+1. Open your **Dorik project dashboard**
+2. Go to **Site Settings → Custom Code**
+3. Paste the Trakg script inside the **Footer Scripts** section:
+
+```html
+<script
+	defer
+	src="https://cdn.trakg.com/api/v1/tracker.min.js?id=YOUR_ID_GIVEN"
+></script>
+```
+
+4. Click **Save & Publish**
+
+---
+
+### **5. Carrd**
+
+1. In the Carrd editor, click **Settings → Code → Add Custom Code**
+2. Scroll to the **Before `</body>`** field
+3. Paste the Trakg script:
+
+```html
+<script
+	defer
+	src="https://cdn.trakg.com/api/v1/tracker.min.js?id=YOUR_ID_GIVEN"
+></script>
+```
+
+4. Click **Done → Publish**
+
+---
+
+## Best Practices
+
+-   Always use the `defer` attribute for better performance
+-   Insert the script just before the closing `</body>` tag
+-   No need to modify or wrap your forms
+-   Trakg works with native HTML forms and most form builders (like Tally, Typeform embeds, Contact Form, etc.)
+
+---
+
+## You're Ready!
+
+Once the script is installed:
+
+-   Trakg will start tracking form interactions, field activity, and drop-offs
+-   You'll see partially filled form data in your [Trakg Dashboard](https://app.trakg.com)
+-   You can export leads, analyze user intent, and recover lost conversions
+
+Need help? [Contact our support](https://trakg.com/contact)

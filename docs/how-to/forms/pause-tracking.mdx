@@ -1,0 +1,30 @@
+## Pause Tracking on a Form
+
+By default, **Trakg automatically tracks** all form interactions on your website — including typing, blurs, focus, and submissions — for every `<form>` element detected on a verified website.
+
+If you want to **pause or disable tracking** for a specific form (e.g., sensitive or internal forms like admin logins, payment forms, etc.), you can use the special attribute:
+
+```html
+trakg-form-track="notrack"
+```
+
+### Example: This form will NOT be tracked
+
+```html
+<form trakg-form-track="notrack">
+	<input type="password" name="admin-password" />
+	<button type="submit">Login</button>
+</form>
+```
+
+This tells **Trakg** not to track any inputs or interactions inside this form.
+
+### 🔐 Best Practice
+
+Use `trakg-form-track="notrack"` on:
+
+-   Admin login forms
+-   Sensitive data collection forms (e.g., card inputs, internal forms)
+-   Third-party or embedded forms you don’t want monitored
+
+> ⚠️ **Note:** Trakg tracks all forms by default unless explicitly disabled using this attribute. Always review sensitive areas and opt out where needed.

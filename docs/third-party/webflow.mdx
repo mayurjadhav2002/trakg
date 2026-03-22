@@ -1,0 +1,48 @@
+---
+title: Webflow
+description: "Track abandoned forms on your Webflow site with Trakg. No code changes to your forms needed."
+icon: "webflow"
+iconType: "solid"
+---
+
+## Installing Trakg on a Webflow Site
+
+To integrate Trakg with your Webflow site:
+
+1. Open your **Webflow Project Settings**
+2. Go to the **Custom Code** tab
+3. In the **Footer Code** section, paste the following script:
+
+```html
+<script
+  defer
+  src="https://cdn.trakg.com/api/v1/tracker.min.js?id=YOUR_ID_GIVEN"
+></script>
+```
+
+> Replace `YOUR_ID_GIVEN` with your actual Site ID from your [Trakg Dashboard](https://app.trakg.com)
+
+4. Click **Save Changes**
+5. Re-publish your Webflow site
+
+---
+
+## Best Practices
+
+- ✅ Use the `defer` attribute for non-blocking load  
+- ✅ Add the script in the **Footer Code** section (before `</body>`)  
+- ✅ No need to wrap your forms in providers or change their structure  
+- ✅ Trakg works with native `form`, `input`, `textarea`, and `select` tags used in Webflow  
+
+---
+
+## You're Ready!
+
+Once the script is installed:
+
+- Form activity will be tracked automatically  
+- Trakg will capture partially filled data — even if the form isn’t submitted  
+- All data will appear in your [Trakg Dashboard](https://app.trakg.com)  
+- Export leads, view drop-offs, and recover lost conversions  
+
+Need help? [Contact Support](https://trakg.com/contact)

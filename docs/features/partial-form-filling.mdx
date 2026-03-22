@@ -1,0 +1,135 @@
+---
+title: Partial Form Filling
+description: "Track and recover leads even if the user didn’t submit your form"
+---
+
+Trakg enables your business to capture form input **even if users don’t hit 'Submit'**. This means you no longer lose valuable insights when someone starts filling a form but abandons it midway.
+
+## 🔍 What It Does
+
+Trakg listens to form activity in real-time and tracks every user interaction like:
+
+-   Typing into input fields
+-   Selecting options from dropdowns
+-   Checking checkboxes or radio buttons
+-   Navigating between fields (focus and blur)
+-   Time spent on each field
+
+All of this data is captured and sent securely to your Trakg dashboard.
+
+---
+
+## 🏆 Benefits
+
+-   **Recover Lost Leads**  
+    Know exactly who showed interest but didn’t complete the form.
+
+-   **Understand Drop-Off Behavior**  
+    Learn which fields users drop off at or find confusing.
+
+-   **Real-Time Tracking**  
+    View inputs as they happen, not just after submission.
+
+-   **Boost Conversion Rates**  
+    Follow up intelligently using partial data before the lead is lost forever.
+
+---
+
+## 📊 What Data Is Collected?
+
+When a visitor interacts with your form, Trakg captures:
+
+-   **Partially filled field data** (text typed, selected options)
+-   **What was typed and later removed**
+-   **Form engagement timing** (how long they stayed on each field)
+-   **Form start and abandon time**
+-   **Visitor metadata**:
+    -   Referrer URL
+    -   UTM parameters
+    -   Device type (mobile, desktop, tablet)
+    -   Geolocation (approx. country or region)
+    -   Browser and OS
+
+---
+
+## 🔐 Privacy & Data Protection
+
+We take privacy seriously. Trakg has **built-in filters** that automatically exclude:
+
+-   Passwords and password-like fields
+-   Credit card or financial input fields
+-   Sensitive personal or confidential information
+
+We use field names, input types, and patterns (e.g., "ssn", "cardNumber", etc.) to detect and exclude sensitive content from tracking.
+
+---
+
+## ⚙️ Custom Filtering & Exclusions
+
+Want to block certain fields or forms from being tracked?
+
+-   You can exclude any input field or form using `data-trakg-ignore` attribute.
+-   Example:
+
+    ```html
+    <input name="ssn" data-trakg-ignore />
+    ```
+
+-   Read more about [Field Exclusion →](https://docs.trakg.com/configuration/field-exclusion)
+
+---
+
+## 📸 How It Looks
+
+You’ll see a visual breakdown of form interactions in your Trakg dashboard, including:
+
+-   Partially filled lead data
+-   Field-by-field engagement
+-   Drop-off points
+-   Real-time visitor analytics
+
+![Dashboard View](https://trakg.com/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdioiyots5%2Fimage%2Fupload%2Fv1749884090%2Fscrnli_W7B3Q80LGtHH3o_aauyuz.webp&w=1920&q=75)
+
+---
+
+## 🧪 Try It Out
+
+To start tracking partial data:
+
+1. Copy your unique script from [Trakg Dashboard](https://app.trakg.com)
+2. Paste it before the closing `</body>` tag on your website:
+
+```html
+<script
+	defer
+	src="https://cdn.trakg.com/api/v1/tracker.min.js?id=YOUR_ID_GIVEN"
+></script>
+```
+
+That’s it — no additional setup required. It works automatically across:
+
+-   Native HTML forms
+-   React, Vue, Angular forms
+-   No-code tools like Webflow, Wix, Shopify, and WordPress
+
+---
+
+## 🧩 Use Cases
+
+-   SaaS onboarding forms
+-   Contact or support forms
+-   Multi-step survey or quote forms
+-   Ecommerce checkout forms
+
+---
+
+## 💬 Need Help?
+
+Have questions or need setup assistance?
+
+-   [View Docs](https://docs.trakg.com)
+-   [Contact Support](https://trakg.com/contact)
+
+---
+
+Start recovering leads you didn’t even know you were losing 🚀

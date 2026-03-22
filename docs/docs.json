@@ -1,0 +1,121 @@
+{
+	"$schema": "https://mintlify.com/docs.json",
+	"theme": "mint",
+	"name": "Trakg Documentation",
+	"colors": {
+		"primary": "#3b18ed",
+		"light": "#4e36c7",
+		"dark": "#3b18ed"
+	},
+	"favicon": "/favicon.png",
+	"navigation": {
+		"tabs": [
+			{
+				"tab": "Guides",
+				"groups": [
+					{
+						"group": "Overview",
+						"pages": ["index", "quickstart"]
+					},
+					{
+						"group": "Supported Frameworks",
+						"pages": [
+							"frameworks/overview",
+							"frameworks/react",
+							"frameworks/nextjs",
+							"frameworks/vue",
+							"frameworks/laravel",
+							"frameworks/html-css"
+						]
+					},
+					{
+						"group": "Third-Party Integrations",
+						"pages": [
+							"third-party/wordpress",
+							"third-party/webflow",
+							"third-party/shopify",
+							"third-party/wix",
+							"third-party/no-code"
+						]
+					},
+					{
+						"group": "Core Features",
+						"pages": [
+							"features/partial-form-filling",
+							"features/auto-form-filling",
+							"features/security-compliance",
+							"features/advanced-analytics",
+							"features/automations"
+						]
+					}
+				]
+			},
+			{
+				"tab": "How-To Guides",
+				"groups": [
+					{
+						"group": "Account & Verification",
+						"pages": ["how-to/verification"]
+					},
+					{
+						"group": "Websites",
+						"pages": [
+							"how-to/websites/new-website",
+							"how-to/websites/delete-website",
+							"how-to/websites/update-website",
+							"how-to/websites/verify-website"
+						]
+					},
+					{
+						"group": "Forms",
+						"pages": [
+							"how-to/forms/add-form",
+							"how-to/forms/pause-tracking"
+						]
+					},
+					{
+						"group": "Inputs",
+						"pages": [
+							"how-to/inputs/disable-tracking",
+							"how-to/inputs/add-identifier"
+						]
+					},
+
+					{
+						"group": "Analytics",
+						"pages": [
+							"how-to/analytics/lead-analytics",
+							"how-to/analytics/form-analytics",
+							"how-to/analytics/engagement"
+						]
+					}
+				]
+			}
+		]
+	},
+
+	"logo": {
+		"light": "/logo/light.svg",
+		"dark": "/logo/dark.svg"
+	},
+	"navbar": {
+		"links": [
+			{
+				"label": "Support",
+				"href": "mailto:support@trakg.com"
+			}
+		],
+		"primary": {
+			"type": "button",
+			"label": "Dashboard",
+			"href": "https://app.trakg.com/dashboard"
+		}
+	},
+	"footer": {
+		"socials": {
+			"x": "https://x.com/trakg_x",
+			"instagram": "https://www.instagram.com/trakg.com_/",
+			"linkedin": "http://linkedin.com/company/trakg-com"
+		}
+	}
+}

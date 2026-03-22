@@ -1,0 +1,7 @@
+onlyBuiltDependencies:
+  - '@clerk/shared'
+  - '@prisma/engines'
+  - argon2
+  - bcrypt
+  - msgpackr-extract
+  - prisma

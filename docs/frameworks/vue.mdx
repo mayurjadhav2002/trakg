@@ -1,0 +1,78 @@
+---
+title: Vue.js
+description: "How to use Trakg with your Vue.js apps"
+icon: "vuejs"
+iconType: "solid"
+---
+
+## 📦 Installing Trakg in Vue.js
+
+You can use the Trakg script in your **Vue.js** app by inserting it in your root `public/index.html` file or dynamically through Vue lifecycle methods.
+
+---
+
+## 🧩 Option 1: Add in `public/index.html`
+
+```html
+<!-- public/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Vue App</title>
+	</head>
+	<body>
+		<div id="app"></div>
+
+		<!-- ✅ Trakg Script (insert just before closing body tag) -->
+		<script
+			defer
+			src="https://cdn.trakg.com/api/v1/tracker.min.js?id=YOUR_ID_GIVEN"
+		></script>
+	</body>
+</html>
+```
+
+🔁 **Replace `YOUR_ID_GIVEN`** with the actual Site ID from your Trakg dashboard.
+
+---
+
+## ⚙️ Option 2: Dynamically Load Script in Component
+
+If you want to load the script dynamically (e.g. conditionally on a route or after auth), you can use the `mounted()` hook in a component:
+
+```js
+export default {
+	name: "TrakgLoader",
+	mounted() {
+		const script = document.createElement("script");
+		script.src =
+			"https://cdn.trakg.com/api/v1/tracker.min.js?id=YOUR_ID_GIVEN";
+		script.defer = true;
+		document.body.appendChild(script);
+	},
+};
+```
+
+Then include this component in your root layout or App.vue.
+
+---
+
+## 🛡 Best Practices
+
+-   ✅ Use `defer` to prevent blocking HTML render.
+-   ✅ Add script before the closing `</body>` tag.
+-   ✅ Works with any form using `<form>`, `<input>`, `<textarea>`, or `<select>`.
+-   ✅ No wrappers or custom components required — native HTML is supported.
+
+---
+
+## 🚀 You're Ready!
+
+Once installed, Trakg will:
+
+-   Track form interactions
+-   Capture partial + completed submissions
+-   Show real-time analytics in your dashboard
+
+Check your [Trakg Dashboard](app.trakg.com) for insights or [contact support](trakg.com/contact) if you need help.
