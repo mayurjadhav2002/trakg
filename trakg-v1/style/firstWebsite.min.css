@@ -1,0 +1,96 @@
+
+.transition-all {
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 0.15s;
+  }
+  
+  #style-AQliM.style-AQliM {
+    top: 1%;
+    left: 99%;
+  }
+  #style-WCb99.style-WCb99 {
+    top: 7%;
+    left: 1%;
+  }
+  #style-dBNZV.style-dBNZV {
+    top: 93%;
+    left: 23%;
+  }
+  #style-tiisO.style-tiisO {
+    top: 43%;
+    left: 15%;
+  }
+  #style-re9B7.style-re9B7 {
+    top: 93%;
+    left: 9%;
+  }
+  #style-BKG4G.style-BKG4G {
+    top: 21%;
+    left: 88%;
+  }
+  #style-NaoVe.style-NaoVe {
+    top: 99%;
+    left: 95%;
+  }
+  #style-pwIlv.style-pwIlv {
+    top: 64%;
+    left: 99%;
+  }
+  #style-QmcAd.style-QmcAd {
+    top: 14%;
+    left: 45%;
+  }
+  #style-VG2eL.style-VG2eL {
+    top: 2%;
+    left: 48%;
+  }
+  
+  /* Keyframes for sparkle animation */
+  @keyframes sparkle {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  
+  /* Add animation to sparkle elements */
+  .animate-magic-sparkle {
+    animation: sparkle 2s infinite;
+  }
+  
+  .style-AQliM {
+    animation-delay: 0.5s;
+  }
+  .style-WCb99 {
+    animation-delay: 0.33s;
+  }
+  .style-dBNZV {
+    animation-delay: 0.6s;
+  }
+  .style-tiisO {
+    animation-delay: 0.9s;
+  }
+  .style-re9B7 {
+    animation-delay: 1.2s;
+  }
+  .style-BKG4G {
+    animation-delay: 1.5s;
+  }
+  .style-NaoVe {
+    animation-delay: 1.8s;
+  }
+  .style-pwIlv {
+    animation-delay: 1.9s;
+  }
+  .style-QmcAd {
+    animation-delay: 1.4s;
+  }
+  .style-VG2eL {
+    animation-delay: 1.7s;
+  }
